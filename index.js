@@ -30,12 +30,20 @@ app.use("/", storeRouter);
 // app.use("/products", productRouter);
 // app.use("/users", userRouter);
 
-const startServer = async() =>{
-  await dbConnect() 
-  app.listen(5000, () => {
-  console.log("Server Started");
-  });
+const startServer = async () => {
+  try {
+    await dbConnect();
+
+    const PORT = process.env.PORT || 5000;
+
+    app.listen(PORT, () => {
+      console.log(`Server Started on port ${PORT}`);
+    });
+
+  } catch (error) {
+    console.log("Server failed to start:", error);
+  }
 };
 
-startServer()
+startServer();
 
