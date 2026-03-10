@@ -1,6 +1,6 @@
-<h2>Products Admin Page</h2>
+<br><h2 style="text-align: center;">Products Admin Page</h2><br>
 
-<p><a href="/products/add">Add Product</a></p>
+<p style="text-align: center;"><a href="/products/add">Add Product</a></p><br>
 
 <ol>
 	<% if (!products || products.length === 0) { %>
@@ -13,7 +13,7 @@
 				<%= product.name %> - <%= product.desc %> - <%= product.price %> - <%= product.imageUrl %>
 				| <a href="/products/<%= product._id %>/edit">Edit</a>
 				| <a href="/products/<%= product._id %>/delete" onclick="return confirm('Delete this product?')">Delete</a>
-			</li>
+			</li><br>
 		<% }) %>
 	<% } %>
 </ol>

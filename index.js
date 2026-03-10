@@ -5,6 +5,7 @@ import { productRouter } from "./routes/ProductRoute.js";
 import { storeRouter } from "./routes/storeRoute.js";
 import dotenv from "dotenv";
 import dbConnect from "./config/db.js";
+import cors from "cors";
 
 dotenv.config();
 
@@ -15,7 +16,7 @@ app.set("views", "views");
 app.set("layout", "layout");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
-
+app.use(cors());
 app.use(
   session({
     secret: "secretkey",
