@@ -3,6 +3,8 @@ import expressLayouts from "express-ejs-layouts";
 import session from "express-session";
 import { productRouter } from "./routes/ProductRoute.js";
 import { storeRouter } from "./routes/storeRoute.js";
+import userRouter from "./routes/userRoute.js";
+import authRouter from "./routes/authRoute.js";
 import dotenv from "dotenv";
 import dbConnect from "./config/db.js";
 import cors from "cors";
@@ -25,10 +27,15 @@ app.use(
   }),
 );
 
+app.use((req, res, next) => {
+  res.locals.currentUser = req.session.user || null;
+  next();
+});
+
 app.use("/", storeRouter);
-// app.use("/auth", authRouter);
+app.use("/", authRouter);
 app.use("/products", productRouter);
-// app.use("/users", userRouter);
+app.use("/users", userRouter);
 
 const startServer = async () => {
   try {

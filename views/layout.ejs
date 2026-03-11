@@ -14,8 +14,12 @@
             <li><a href="/" style="color: orange; font-size: 15px">Home</a></li>
             <li><a href="/products" style="color: orange;font-size: 15px">Products</a></li>
             <li><a href="/users" style="color: orange; font-size: 15px">Users</a></li>
+            <% if (currentUser) { %>
+            <li><a href="/logout" style="color: orange;font-size: 15px">Logout (<%= currentUser.name %>)</a></li>
+            <% } else { %>
             <li><a href="/login" style="color: orange;font-size: 15px">Login</a></li>
-            <li><a href="/logout" style="color: orange;font-size: 15px">Logout</a></li>
+            <li><a href="/register" style="color: orange;font-size: 15px">Register</a></li>
+            <% } %>
         </ul>
     </div><br>
     <div ><%- body %></div>
