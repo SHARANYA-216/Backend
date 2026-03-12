@@ -1,9 +1,22 @@
-import mongoose from "mongoose"; // method to connect to mongodb atlas
+import mongoose from "mongoose";
+
 const dbConnect = async () => {
-    try{
-        await mongoose.connect(process.env.MONGO_URI);
-    } catch (err){
-        console.log(err);
-    }
+  const mongoUri = process.env.MONGO_URI;
+
+  if (!mongoUri) {
+    throw new Error(
+      "MONGO_URI is not set. Add it to .env (or environment variables) before starting the server.",
+    );
+  }
+
+  try {
+    await mongoose.connect(mongoUri);
+    console.log("MongoDB connected");
+  } catch (err) {
+    console.error("MongoDB connection failed:");
+    console.error(err);
+    throw err;
+  }
 };
-export default dbConnect; //writen for dbConnect
+
+export default dbConnect;

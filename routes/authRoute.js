@@ -1,12 +1,13 @@
-import express from "express";
-import { loginForm, login, registerForm, register, logout } from "../controllers/authController.js";
+import {login,validateUser,register,registerUser,logout,signup,signin} from "../controllers/authController.js"
+import express from "express"
+const authRouter = express.Router()
 
-const authRouter = express.Router();
+authRouter.get("/login",login)
+authRouter.post("/login",validateUser)
+authRouter.get("/register",register)
+authRouter.post("/register",registerUser)
+authRouter.get("/logout",logout)
+authRouter.post("/signup",signup)
+authRouter.post("/signin",signin)
 
-authRouter.get("/login", loginForm);
-authRouter.post("/login", login);
-authRouter.get("/register", registerForm);
-authRouter.post("/register", register);
-authRouter.get("/logout", logout);
-
-export default authRouter;
+export default authRouter

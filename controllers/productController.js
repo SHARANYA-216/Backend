@@ -11,40 +11,33 @@ const addProduct = async (req, res) => {
   res.redirect("/products");
 };
 
-const addProductForm = async (req,res) => {
-  res.render("products/add")
-}
-const editProductForm = async (req,res) => {
-    const id = req.params.id;
-    const product = await productModel.findById(id);    
-    res.render("products/edit", { product });
-}
-const saveProduct = async (req, res) => {
-    const id = req.params.id;
-    const product = req.body;
+const addProductForm = async (req, res) => {
+  res.render("products/add");
+};
 
-    await productModel.findByIdAndUpdate(id, product);
-    res.redirect("/products");
-}
 const deleteProduct = async (req, res) => {
-    const id = req.params.id;
-    await productModel.findByIdAndDelete(id);
-    res.redirect("/products");
-}
-const updateProduct = async (req, res) =>{
-    const id = req.params.id;
-    const product = req.body;
-    await productModel.findByIdAndUpdate(id, product);
-    res.redirect("/products");
-}
-export { getProducts,addProduct,addProductForm,editProductForm,saveProduct,deleteProduct,updateProduct };
+  const id = req.params.id;
+  await productModel.findByIdAndDelete(id);
+  res.redirect("/products");
+};
 
+const editProductForm = async (req, res) => {
+  const id = req.params.id;
+  const product = await productModel.findOne({ _id: id });
+  res.render("products/edit", { product });
+};
 
+const saveProduct = async (req, res) => {
+  const id = req.params.id;
+  await productModel.findByIdAndUpdate(id, req.body);
+  res.redirect("/products")
+};
 
-
-
-
-
-
-
-
+export {
+  getProducts,
+  addProduct,
+  addProductForm,
+  deleteProduct,
+  editProductForm,
+  saveProduct
+};
