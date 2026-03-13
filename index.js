@@ -5,7 +5,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { authenticateAdmin } from "./middleware/auth.js";
 import dbConnect from "./config/db.js";
-import productRouter from "./routes/productRoute.js"
+import productRouter from "./routes/productRoute.js";
 import storeRouter from "./routes/storeRoute.js";
 import homeRouter from "./routes/homeRoute.js";
 import authRouter from "./routes/authRoute.js";
