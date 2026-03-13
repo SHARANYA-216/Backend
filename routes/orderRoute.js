@@ -1,13 +1,8 @@
-import {login,validateUser,register,registerUser,logout,signup,signin} from "../controllers/authController.js"
+import { placeOrder,showOrders } from "../controllers/orderController.js";
 import express from "express"
-const authRouter = express.Router()
+const orderRouter = express.Router()
 
-authRouter.get("/login",login)
-authRouter.post("/login",validateUser)
-authRouter.get("/register",register)
-authRouter.post("/register",registerUser)
-authRouter.get("/logout",logout)
-authRouter.post("/signup",signup)
-authRouter.post("/signin",signin)
+orderRouter.post("/",placeOrder)
+orderRouter.get("/:email",showOrders)
 
-export default authRouter
+export default orderRouter
