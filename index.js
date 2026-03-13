@@ -3,13 +3,14 @@ import expressLayouts from "express-ejs-layouts";
 import session from "express-session";
 import cors from "cors";
 import dotenv from "dotenv";
-import { authenticateAdmin } from "./middleware/auth.js";
+import { authenticateAdmin,authenticateUser } from "./middleware/auth.js";
 import dbConnect from "./config/db.js";
 import productRouter from "./routes/productRoute.js";
 import storeRouter from "./routes/storeRoute.js";
 import homeRouter from "./routes/homeRoute.js";
 import authRouter from "./routes/authRoute.js";
 import userRouter from "./routes/userRoute.js";
+import orderRouter from "./routes/orderRoute.js";
 
 const app = express();
 app.use(cors());
@@ -31,29 +32,23 @@ app.use(
 );
 
 app.use((req, res, next) => {
-  res.locals.currentUser = req.session.user || null;
+  res.locals.user = req.session.user;
   next();
 });
 
 app.use("/auth", authRouter);
 app.use("/store", storeRouter);
+app.use("/orders",authenticateUser,orderRouter)
 app.use("/", authenticateAdmin, homeRouter);
 app.use("/products", authenticateAdmin, productRouter);
 app.use("/users", authenticateAdmin, userRouter);
-// app.use("/orders", authenticateAdmin, orderRouter); 
 
-const PORT = process.env.PORT || 5000;
 
 const startServer = async () => {
-  try {
-    await dbConnect();
-    app.listen(PORT, () => {
-      console.log(`Server Started on port ${PORT}`);
-    });
-  } catch {
-    console.error("Server not started: failed to connect to MongoDB.");
-    process.exit(1);
-  }
+  await dbConnect();
+  app.listen(5000, () => {
+    console.log("Server Started");
+  });
 };
 
 startServer();
