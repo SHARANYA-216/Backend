@@ -6,6 +6,9 @@
       <h3><%= product.name %></h3>
       <p><%= product.desc %></p>
       <h4>$<%= product.price %></h4>
+      <p style="margin: 8px 0 0;">
+        🌟<strong>Rating:</strong> <%= product.rating != null ? product.rating : "N/A" %>
+      </p>
     </div>
   <% }) %>
 </div>
