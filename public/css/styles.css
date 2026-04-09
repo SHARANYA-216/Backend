@@ -24,6 +24,7 @@ body {
 .footer{
     background-color: silver;
     padding: 5px;
+    text-align: center;
 }
 .row {
     display: flex;
