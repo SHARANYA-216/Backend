@@ -1,6 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Alice&display=swap');
+
 *{
     margin:0px
 }
+
+body {
+    font-family: Arial, sans-serif;
+}
+
 .header{
     display: flex;
     justify-content: space-between;
@@ -29,4 +36,158 @@
     border:1px solid gray;
     border-radius: 5px;
     
+}
+
+.admin-page {
+    padding: 20px;
+}
+
+.admin-title {
+    margin-bottom: 14px;
+}
+
+.top-actions {
+    margin-bottom: 16px;
+}
+
+.admin-list {
+    list-style-position: inside;
+    padding-left: 0;
+}
+
+.admin-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border: 1px solid #d8d8d8;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.item-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.item-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    border: 1px solid transparent;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #1d6b2f;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #155324;
+}
+
+.btn-edit {
+    background-color: #0f62fe;
+    color: #fff;
+}
+
+.btn-edit:hover {
+    background-color: #0a4bc8;
+}
+
+.btn-danger {
+    background-color: #b42318;
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background-color: #8f1a12;
+}
+
+.form-page {
+    padding: 20px;
+}
+
+.form-card {
+    max-width: 520px;
+    border: 1px solid #d8d8d8;
+    border-radius: 10px;
+    padding: 18px;
+}
+
+.form-card p {
+    margin-bottom: 10px;
+}
+
+.form-card input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #c7c7c7;
+    box-sizing: border-box;
+}
+
+.form-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.home-product-card {
+    font-family: 'Alice', serif;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.home-page {
+    padding: 10px 12px;
+}
+
+.home-title {
+    margin-bottom: 12px;
+}
+
+.home-products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
+}
+
+.home-product-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+}
+
+.home-rating {
+    margin: 8px 0 0;
+}
+
+@media (max-width: 600px) {
+    .home-page {
+        padding: 8px;
+    }
+
+    .home-products-grid {
+        gap: 10px;
+    }
+
+    .home-product-image {
+        height: 200px;
+    }
 }

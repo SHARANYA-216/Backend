@@ -5,21 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/styles.css" />
 </head>
 <body>
-    <h2>Products Admin Page</h2>
-    <a href="/products/add">Add Product</a>
-    <ol>
+    <div class="admin-page">
+    <h2 class="admin-title">Products Admin Page</h2>
+    <div class="top-actions">
+        <a class="btn btn-primary" href="/products/add">Add Product</a>
+    </div>
+    <ol class="admin-list">
     <% products.forEach(product => { %>
-        <li><%= product.name %>-
-            <%=product.desc %>-
-            <%= product.price %>-
-            <%= product.imageUrl %>-
-            <%= product.rating %>-
-            <a href="/products/<%= product._id %>/edit">Edit</a>-
-            <a href="/products/<%= product._id %>/delete">Delete</a>
+        <li class="admin-item">
+            <div class="item-meta">
+                <strong><%= product.name %></strong>
+                <span><%= product.desc %></span>
+                <span>$<%= product.price %></span>
+                <span><%= product.imageUrl %></span>
+                <span>Rating: <%= product.rating %></span>
+            </div>
+            <div class="item-actions">
+                <a class="btn btn-edit" href="/products/<%= product._id %>/edit">Edit</a>
+                <a class="btn btn-danger" href="/products/<%= product._id %>/delete">Delete</a>
+            </div>
         </li>
     <% }) %>
     </ol>
+    </div>
 </body>
 </html>

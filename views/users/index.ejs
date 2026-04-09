@@ -4,20 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/styles.css" />
 </head>
 <body>
-    <h2>Users Admin Page</h2>
-    <a href="/users/add">Add User</a>
-    <ol>
+    <div class="admin-page">
+    <h2 class="admin-title">Users Admin Page</h2>
+    <div class="top-actions">
+        <a class="btn btn-primary" href="/users/add">Add User</a>
+    </div>
+    <ol class="admin-list">
     <% users.forEach(user => { %>
-        <li><%= user.name %>-
-            <%= user.email %>-
-            <%= user.password %>-
-            <%= user.role %>-
-            <a href="/users/<%= user._id %>/edit">Edit</a>-
-            <a href="/users/<%= user._id %>/delete">Delete</a>
+        <li class="admin-item">
+            <div class="item-meta">
+                <strong><%= user.name %></strong>
+                <span><%= user.email %></span>
+                <span><%= user.role %></span>
+            </div>
+            <div class="item-actions">
+                <a class="btn btn-edit" href="/users/<%= user._id %>/edit">Edit</a>
+                <a class="btn btn-danger" href="/users/<%= user._id %>/delete">Delete</a>
+            </div>
         </li>
     <% }) %>
     </ol>
+    </div>
 </body>
 </html>

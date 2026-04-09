@@ -4,16 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/styles.css" />
 </head>
 <body>
-    <h2>Product Edit Form</h2>
-    <form action="/products/<%= product._id %>/save" method="POST">
-        <p><input type="text" name="name" value="<%= product.name %>"></p>
-        <p><input type="number" name="price" value="<%= product.price %>"></p>
-        <p><input type="text" name="desc" value="<%= product.desc %>"></p>
-        <p><input type="text" name="imageUrl"  value="<%= product.imageUrl %>"></p>
-        <p><input type="number" name="rating" value="<%= product.rating %>" step="0.1" min="0" max="5"></p>
-        <p><button>Save</button></p>
-    </form>
+    <div class="form-page">
+        <h2 class="admin-title">Product Edit Form</h2>
+        <form class="form-card" action="/products/<%= product._id %>/save" method="POST">
+            <p><input type="text" name="name" value="<%= product.name %>"></p>
+            <p><input type="number" name="price" value="<%= product.price %>"></p>
+            <p><input type="text" name="desc" value="<%= product.desc %>"></p>
+            <p><input type="text" name="imageUrl"  value="<%= product.imageUrl %>"></p>
+            <p><input type="number" name="rating" value="<%= product.rating %>" step="0.1" min="0" max="5"></p>
+            <div class="form-actions">
+                <button class="btn btn-primary" type="submit">Save Changes</button>
+                <a class="btn btn-edit" href="/products">Back</a>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
