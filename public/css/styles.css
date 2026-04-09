@@ -8,6 +8,16 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.page-shell {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-content {
+    flex: 1;
+}
+
 .header{
     display: flex;
     justify-content: space-between;
