@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Register</title>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    <h2>Registration Form</h2>
-    <form action="/auth/register" method="POST">
-        <p><input type="text" name="name" placeholder="Name"></p>
-        <p><input type="text" name="email" placeholder="Email"></p>
-        <p><input type="password" name="password" placeholder="Password"></p>
-        <p><button>Submit</button></p>
-    </form>
-    <p><a href="/auth/login">Already a member? Login here</a></p>
+    <div class="auth-page">
+        <div class="auth-card">
+            <h2 class="auth-title">Registration Form</h2>
+            <form action="/auth/register" method="POST" class="auth-form">
+                <p class="auth-entry"><input type="text" name="name" placeholder="Name"></p>
+                <p class="auth-entry"><input type="text" name="email" placeholder="Email"></p>
+                <p class="auth-entry"><input type="password" name="password" placeholder="Password"></p>
+                <p class="auth-actions"><button class="btn btn-primary" type="submit">Submit</button></p>
+            </form>
+            <p class="auth-link"><a href="/auth/login">Already a member? Login here</a></p>
+        </div>
+    </div>
 </body>
 </html>
